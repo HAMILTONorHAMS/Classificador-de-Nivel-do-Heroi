@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Nível do Herói</title>
+    <style>
+        body {
+          background-color: rgb(0, 0, 82);
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          transition: background-color 0.5s; /* Suaviza a transição de cor */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cálculo de Nível do Herói</h1>
+    
+    <label for="nome">Nome do Herói:</label>
+    <input type="text" id="nome" placeholder="Digite seu nome">
+
+    <label for="xp">Experiência (XP):</label>
+    <input type="number" id="xp" placeholder="Digite seu XP">
+
+    <button id="calcular">Calcular Nível</button>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        document.getElementById('calcular').addEventListener('click', function() {
+            let nome = document.getElementById('nome').value;
+            let xp = parseInt(document.getElementById('xp').value);
+            let nivel = "";
+
+            // Determina o nível com base no XP
+            if (xp <= 1000) {
+                nivel = "Ferro";
+                document.body.style.backgroundColor = "#A52A2A"; // Marrom
+            } else if (xp <= 2000) {
+                nivel = "Bronze";
+                document.body.style.backgroundColor = "#CD7F32"; // Bronze
+            } else if (xp <= 6000) {
+                nivel = "Prata";
+                document.body.style.backgroundColor = "#C0C0C0"; // Prata
+            } else if (xp <= 7000) {
+                nivel = "Ouro";
+                document.body.style.backgroundColor = "#FFD700"; // Ouro
+            } else if (xp <= 8000) {
+                nivel = "Platina";
+                document.body.style.backgroundColor = "#E5E4E2"; // Platina
+            } else if (xp <= 9000) {
+                nivel = "Ascendente";
+                document.body.style.backgroundColor = "#7FFF00"; // Verde limão
+            } else if (xp <= 10000) {
+                nivel = "Imortal";
+                document.body.style.backgroundColor = "#FF4500"; // Laranja avermelhado
+            } else {
+                nivel = "Radiante";
+                document.body.style.backgroundColor = "#FF1493"; // Rosa profundo
+            }
+
+            // Exibe o resultado
+            document.getElementById('resultado').innerText = `O Herói de nome ${nome} está no nível de ${nivel}`;
+        });
+    </script>
+</body>
+</html>
